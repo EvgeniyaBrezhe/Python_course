@@ -1,10 +1,29 @@
 # Цель задания - создать функции, которые будут генерировать случайные данные нужного формата
 # для записи в файлы разных типов.
+import random
+import string
 
 # Функция 1. Создает данные для записи в файл txt.
 # Функция генерирует и возвращает строку случайной длинны (не менее 100 но не более 1000 символов).
 # В строке должны присутствовать большие и маленькие буквы английского алфавита, цифры, пробелы, знаки препинания.
 # Также необходимо обязательно использовать РОВНО 9 символов перехода на новую строку (\n) В СЕРЕДИНЕ данной строки.
+
+# def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+#     return ''.join(random.choice(chars) for _ in range(size))
+#
+# print(id_generator())
+
+def create_string_for_txt():
+    my_list = []
+    my_str = ""
+    for value in range(random.randint(100, 1000)):
+        symbol = random.choice(string.ascii_uppercase + string.digits)
+        my_list.append(symbol)
+        my_str = my_str.join(my_list)
+
+    return my_str
+
+print(create_string_for_txt())
 
 # Функция 2. Создает данные для записи в файл json.
 # Создает и возвращает словарь со случайным количеством ключей (не менее 5 но не более 20 ключей).
