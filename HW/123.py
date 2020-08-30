@@ -35,5 +35,33 @@ import string
 #     data = json.load(json_file)     # load - load object
 # print(data, type(data))
 
-length_of_m_list = random.randint(3, 10)
-print(length_of_m_list)
+# length_of_m_list = random.randint(3, 10)
+# print(length_of_m_list)
+
+# def sort_key(value_dict):
+#     current_value_dict = value_dict['name']
+#     my_list = current_value_dict.split(" ")
+#     my_new_str = my_list[len(my_list) - 1]
+#     # return value_dict['name']
+#     return my_new_str
+
+
+persons = [{'name': 'John1 Alfa', 'age': 20},
+           {'name': 'Alma Beta', 'age': 21},
+           {'name': 'Hendrick Gamma', 'age': 19}]
+
+# for index in range(len(persons)):
+#     my_dict_value = persons[index]
+#     my_value = my_dict_value.get('name')
+
+    print(my_value)
+
+
+print(len(persons))
+# new_persons = sorted(persons, key=sort_key)
+# print(new_persons)
+
+# a = 'Hendrick Gamma'
+# b = a.split(" ")
+# my_list = b[len(b) - 1]
+# print(my_list)
