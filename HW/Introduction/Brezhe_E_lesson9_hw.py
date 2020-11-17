@@ -63,7 +63,7 @@ def create_dict_with_files_and_folders(my_path='.'):
     return my_dict
 
 
-my_dictionary = create_dict_with_files_and_folders('./tmp_tmp')
+my_dictionary = create_dict_with_files_and_folders('tmp_tmp')
 print(my_dictionary)
 
 ###################################
@@ -89,4 +89,4 @@ def create_or_change_folder(my_path):
             os.rename(folder, str(folder) + str('_tmp'))
 
 
-create_or_change_folder('.')
+create_or_change_folder('..')
