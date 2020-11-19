@@ -1,5 +1,5 @@
 # from lessons.utils import *
-from lessons.utils import get_area_gerone, get_distance
+from lessons.Intro.utils import get_area_gerone, get_distance
 
 # Функция - действие, у нее есть аргументы, она что-то может возвращать, а может ничего не возвращать
 
