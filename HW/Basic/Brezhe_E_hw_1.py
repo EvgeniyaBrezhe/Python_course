@@ -1,3 +1,6 @@
+import functools
+import time
+
 def profile(msg="Time spent"):
     def internal(f):
         @functools.wraps(f)
@@ -35,12 +38,13 @@ def cache(max_limit=2):
 def foo(n):
     time.sleep(n)
 
-foo(1)
-foo(2)
-foo(1)
-foo(2)
 foo(5)
 foo(6)
 foo(5)
 foo(6)
-foo(1)
+foo(7)
+foo(8)
+foo(5)
+foo(6)
+
+
