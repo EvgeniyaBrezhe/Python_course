@@ -26,7 +26,6 @@ def cache(max_limit=3):
             result = f(*args)
 
             if len(deco._cache) > max_limit:
-                # deco._cache.pop(list(deco._cache.keys())[1])
                 deco._cache.popitem()
 
             deco._cache[args] = result
