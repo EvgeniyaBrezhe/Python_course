@@ -359,58 +359,71 @@ from time import sleep
 # foo(9)
 
 #
-# my_dict = {"a": "a", "b": "b", "c": "c", "d": "d", "e": "e"}
-# print(my_dict, type(my_dict))
-#
+my_dict = {"a": "a", "b": "b", "c": "c", "d": "d", "e": "e"}
+print(my_dict, type(my_dict))
+
+if len(my_dict) > 3:
+    my_dict.popitem()
+
+print(my_dict)
 # a = list(my_dict.keys())
 # print(a[0], type(a))
 #
 # my_dict.pop(a[0])
 # print(my_dict)
+#
+# print(len(my_dict))
 
-def profile(msg="Time spent"):
-    def internal(f):
-        @functools.wraps(f)
-        def deco(*args):
-            start = time.time()
-            result = f(*args)
-            print(msg, f'{f.__name__}: {time.time() - start}ms')
-            return result
-        return deco
-    return internal
+# keys = []
+# for value in my_dict.values():
+#     keys.append(value)
+# my_dict.pop(keys[0])
+# print(keys)
+# print(my_dict)
 
-def cache(max_limit=2):
-    def cache_additional(f):
-        @functools.wraps(f)
-        def deco(*args):
-            if args in deco._cache:
-                return deco._cache[args]
-
-            result = f(*args)
-
-            if len(deco._cache) > max_limit:
-                deco._cache.pop(list(deco._cache.keys())[0])
-
-            deco._cache[args] = result
-
-            return result
-
-        deco._cache = {}
-
-        return deco
-    return cache_additional
-
-@profile()
-@cache(max_limit=2)
-def foo(n):
-    time.sleep(n)
-
-foo(1)
-foo(2)
-foo(1)
-foo(2)
-foo(5)
-foo(6)
-foo(5)
-foo(6)
-foo(1)
+# def profile(msg="Time spent"):
+#     def internal(f):
+#         @functools.wraps(f)
+#         def deco(*args):
+#             start = time.time()
+#             result = f(*args)
+#             print(msg, f'{f.__name__}: {time.time() - start}ms')
+#             return result
+#         return deco
+#     return internal
+#
+# def cache(max_limit=2):
+#     def cache_additional(f):
+#         @functools.wraps(f)
+#         def deco(*args):
+#             if args in deco._cache:
+#                 return deco._cache[args]
+#
+#             result = f(*args)
+#
+#             if len(deco._cache) > max_limit:
+#                 deco._cache.pop(list(deco._cache.keys())[0])
+#
+#             deco._cache[args] = result
+#
+#             return result
+#
+#         deco._cache = {}
+#
+#         return deco
+#     return cache_additional
+#
+# @profile()
+# @cache(max_limit=2)
+# def foo(n):
+#     time.sleep(n)
+#
+# foo(1)
+# foo(2)
+# foo(1)
+# foo(2)
+# foo(5)
+# foo(6)
+# foo(5)
+# foo(6)
+# foo(1)

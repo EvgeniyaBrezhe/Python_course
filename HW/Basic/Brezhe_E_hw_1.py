@@ -1,6 +1,7 @@
 import functools
 import time
 
+
 def profile(msg="Time spent"):
     def internal(f):
         @functools.wraps(f)
@@ -9,10 +10,13 @@ def profile(msg="Time spent"):
             result = f(*args)
             print(msg, f'{f.__name__}: {time.time() - start}ms')
             return result
+
         return deco
+
     return internal
 
-def cache(max_limit=2):
+
+def cache(max_limit=3):
     def cache_additional(f):
         @functools.wraps(f)
         def deco(*args):
@@ -22,7 +26,8 @@ def cache(max_limit=2):
             result = f(*args)
 
             if len(deco._cache) > max_limit:
-                deco._cache.pop(list(deco._cache.keys())[0])
+                # deco._cache.pop(list(deco._cache.keys())[1])
+                deco._cache.popitem()
 
             deco._cache[args] = result
 
@@ -31,20 +36,23 @@ def cache(max_limit=2):
         deco._cache = {}
 
         return deco
+
     return cache_additional
 
+
 @profile()
-@cache(max_limit=2)
+@cache(max_limit=3)
 def foo(n):
     time.sleep(n)
 
-foo(5)
-foo(6)
+foo(4)
 foo(5)
 foo(6)
 foo(7)
 foo(8)
+foo(4)
 foo(5)
 foo(6)
-
+foo(7)
+foo(8)
 
