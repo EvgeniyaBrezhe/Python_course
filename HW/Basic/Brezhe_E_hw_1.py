@@ -25,7 +25,7 @@ def cache(max_limit=3):
 
             result = f(*args)
 
-            if len(deco._cache) > max_limit:
+            if len(deco._cache) >= max_limit:
                 deco._cache.popitem()
 
             deco._cache[args] = result
@@ -48,10 +48,8 @@ foo(4)
 foo(5)
 foo(6)
 foo(7)
-foo(8)
 foo(4)
 foo(5)
 foo(6)
 foo(7)
-foo(8)
 
